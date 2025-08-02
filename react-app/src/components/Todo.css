@@ -1,0 +1,176 @@
+/* TodoList container */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Todo item container */
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: background 0.2s ease;
+}
+
+/* Completed style */
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #adb5bd;
+}
+
+/* View mode layout */
+.view-mode {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+/* Checkbox */
+.toggle {
+  width: 18px;
+  height: 18px;
+  accent-color: #5c7cfa;
+  cursor: pointer;
+}
+
+/* Todo text */
+.todo-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+/* Actions container */
+.actions,
+.edit-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Edit button */
+.edit-btn,
+.delete-btn,
+.save-btn,
+.cancel-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #495057;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.edit-btn:hover {
+  color: #228be6;
+}
+
+.delete-btn:hover {
+  color: #fa5252;
+}
+
+.save-btn:hover {
+  color: #40c057;
+}
+
+.cancel-btn:hover {
+  color: #868e96;
+}
+
+/* Edit mode container */
+.edit-mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Input field for editing */
+.edit-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.edit-input:focus {
+  border-color: #5c7cfa;
+}
+
+
+/* --- Form Styling --- */
+.todo-form {
+  margin: 24px auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Input Group (Flex row) --- */
+.input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* --- Input Styling --- */
+.form-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #5c7cfa;
+  background-color: #f0f4ff;
+  outline: none;
+}
+
+/* --- Button Styling --- */
+.form-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #5c7cfa;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-button:hover {
+  background-color: #4c6ef5;
+}
+
+/* --- Error Styling --- */
+.input-error {
+  border-color: #fa5252;
+  background-color: #fff5f5;
+}
+
+.error-text {
+  margin-top: 8px;
+  color: #fa5252;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
