@@ -1,6 +1,3 @@
-```markdown
-# 📝 Fullstack Todo App with React, Node, and MongoDB
-
 # 📝 Fullstack Todo App with React, Node, and MongoDB
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
