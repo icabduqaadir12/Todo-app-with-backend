@@ -8,6 +8,14 @@ A fullstack Todo App built with **React** (frontend), **Node.js + Express** (bac
 
 ---
 
+## 📸 Screenshots
+
+_You can add screenshots here using Markdown:_
+
+![Todo App Screenshot](./screenshot.png)
+
+---
+
 ## 🚀 Features
 
 - ✅ Add new todos
@@ -115,14 +123,6 @@ npm install gh-pages --save-dev
 
 npm run build  
 npm run deploy
-
----
-
-## 📸 Screenshots
-
-_You can add screenshots here using Markdown:_
-
-![Todo App Screenshot](screenshots/todo-ui.png)
 
 ---
 

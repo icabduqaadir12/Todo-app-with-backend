@@ -1,52 +1,4 @@
-// import { useEffect, useRef, useState } from "react"
-import './Todo.css'
-
-// export function TodoList({todos, onEdit, editingId, setEditingId, deletedTodo, toggleComplete}) {   
-//     const [editText, setEditText] = useState('')
-
-//     function handleEdit(todo) {
-//         setEditText(todo.text)
-//         setEditingId(todo.id)
-//     }
-
-//     function handleSave(id) {
-//         if (editText.trim())
-//             onEdit(id, editText.trim())
-//     }
-
-//     function handleKeyDown(e, id) {
-//         if (e.key === 'Enter') handleSave(id)
-//         if (e.key === 'Escape') setEditingId(null)
-//     }
-
-//     return (
-//         <ul>
-//             {todos.map(todo => (
-//                 <li className="todo-item" style={{
-//                     textDecoration: todo.completed ? 'line-through' : 'none',
-//                     opacity: todo.completed ? '0.7' : '1'
-//                 }} key={todo.id}>
-//                 {editingId === todo.id ? (
-//                     <>
-//                         <input className="todo-edit-input" type="text" onKeyDown={(e) => handleKeyDown(e, todo.id)} onChange={(e) => setEditText(e.target.value)}/>
-//                         <button onClick={() => handleSave(todo.id)}>Save</button>
-//                         <button onClick={() => setEditingId(null)}>Cancel</button>
-//                     </>
-//                 ) : ( 
-//                 <>
-//                 <span>{todo.text}</span>
-//                 <button onClick={() => toggleComplete(todo.id)}>{todo.completed ? 'Undo' : 'Complete'}</button>
-//                 <button onClick={() => handleEdit(todo)}>Edit</button>
-//                 <button onClick={() => deletedTodo(todo.id)}>❌</button> 
-//                 </>
-//                 )}
-//                 </li>
-//             ))}
-//         </ul>
-//     )
-// }
-
-
+import './Todo.css';
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -61,7 +13,6 @@ export default function TodoList({
   const [editText, setEditText] = useState('');
   const editInputRef = useRef(null);
 
-  // Focus edit input when entering edit mode
   useEffect(() => {
     if (editingId && editInputRef.current) {
       editInputRef.current.focus();
@@ -76,8 +27,8 @@ export default function TodoList({
   const handleSave = (id) => {
     if (editText.trim()) {
       onEdit(id, editText.trim());
-      setEditText('')
-      setEditingId(null)
+      setEditText('');
+      setEditingId(null);
     }
   };
 
@@ -87,7 +38,7 @@ export default function TodoList({
   };
 
   return (
-    <ul className="todo-list">
+    <ul className="todo-list portfolio-grade">
       {todos.map(todo => (
         <li 
           key={todo._id}
@@ -95,50 +46,53 @@ export default function TodoList({
         >
           {editingId === todo._id ? (
             <div className="edit-mode">
-              <input
-                ref={editInputRef}
-                type="text"
-                value={editText}
-                onChange={(e) => setEditText(e.target.value)}
-                onKeyDown={(e) => handleKeyDown(e, todo._id)}
-                className="edit-input"
-              />
-              <div className="edit-actions">
+              <div className="input-group">
+                <input
+                  ref={editInputRef}
+                  type="text"
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(e, todo._id)}
+                  className="form-input"
+                  placeholder="Update task..."
+                />
                 <button 
                   onClick={() => handleSave(todo._id)}
                   disabled={!editText.trim()}
-                  className="save-btn"
+                  className="form-button save"
                 >
-                  ✓
+                  Save
                 </button>
                 <button 
                   onClick={() => setEditingId(null)}
-                  className="cancel-btn"
+                  className="form-button cancel"
                 >
-                  ✗
+                  Cancel
                 </button>
               </div>
             </div>
           ) : (
             <div className="view-mode">
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => onToggle(todo._id)}
-                className="toggle"
-              />
-              <span className="todo-text">{todo.text}</span>
+              <label className="custom-checkbox">
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => onToggle(todo._id)}
+                />
+                <span className="checkmark"></span>
+              </label>
+              <span className="todo-text styled-text">{todo.text}</span>
               <div className="actions">
                 <button 
                   onClick={() => handleEdit(todo)}
-                  className="edit-btn"
+                  className="edit-btn icon-btn"
                   aria-label="Edit"
                 >
                   ✏️
                 </button>
                 <button 
                   onClick={() => onDelete(todo._id)}
-                  className="delete-btn"
+                  className="delete-btn icon-btn"
                   aria-label="Delete"
                 >
                   🗑️
